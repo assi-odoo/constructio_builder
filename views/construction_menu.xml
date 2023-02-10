@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="construction_menu_root" name="construction property">
+        <!--  List all work going on -->
+        <menuitem id="first_level_menu" name="Work">
+            <menuitem id="construction_model_menu_action" action="construction_model_action" />
+        </menuitem>
+
+        <!--    Setting Menu with Orders -->
+        <menuitem id="more_setting_menu" name="Settings">
+            <menuitem id="construction_setting_menu" name="Orders" action="constr_setting_menu_action" />
+        </menuitem>
+
+    </menuitem>
+</odoo>

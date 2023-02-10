@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="constr_setting_menu_action" model="ir.actions.act_window">
+        <field name="name">Orders</field>
+        <field name="res_model">construction.orders</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

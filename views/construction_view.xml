@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<odoo>
+  <record id="construction_model_action" model="ir.actions.act_window">
+    <field name="name"> Propertys</field>
+    <field name="res_model">construction.property</field>
+    <!-- <field name="view_mode">tree,form</field> -->
+  </record>
+<!-- Tree View -->
+  <record id="construction_tree_view" model="ir.ui.view">
+  <field name="name">construction tree view</field>
+  <field name="model">construction.property</field>
+  <field name="arch" type="xml">
+    <tree>
+      <field name="site_name" string="Site Name"/>
+      <field name="assign_to"/>
+      <field name="customer_name" string="Organisation"/>
+      <field name="location"/>
+      <field name="workers" string="Number Of Workers"/>
+      <field name="state"/>
+      <field name="construction_type" string="Type"/>
+    </tree>
+  </field>
+  </record>
+  <!-- Form Vieww -->
+  <record id="construction_form_view" model="ir.ui.view">
+    <field name="name">construction form view</field>
+    <field name="model">construction.property</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+                  <!-- Header -->
+          <header>
+            <field name="state" widget="statusbar" options="{'clickable':'1'}"/>
+          </header>
+          <h1>
+          <field name="site_name"/>
+          </h1>
+          <!-- Groups -->
+        <group>
+                  <!-- Colunm 1 -->
+          <group>
+            <field name="customer_name"/>
+            <field name="assign_to"/>
+          </group>
+                  <!-- Colunm 2 -->
+           <group>
+            <field name="construction_type"/>
+            <field name="area" string="Area(Sqm)"/>
+          </group>
+        </group>
+        <!-- Notebooks -->
+        <notebook>
+          <page string="Description">
+            <field name="description"/>
+          </page>
+
+          <page string="Others Info"> 
+          <group>
+            <field name="location"/>
+            <field name="workers" string="Number Of Workers"/>
+          </group>
+          </page>
+        </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  <!--   Search view-->
+  <record id="construction_view_search" model="ir.ui.view">
+    <field name="name">construction.view.search</field>
+    <field name="model">construction.property</field>
+    <field name="arch" type="xml">
+      <search string="">
+          <field name="site_name"/>
+          <field name="customer_name"/>
+          <field name="location"/>
+          <field name="construction_type"/>
+          <field name="area"/>
+          <filter string="State" name="State" domain="['|',('state', '=', 'house'), ('state','=','residential building')]"/>
+          <group expand="1" string="Group By">
+              <filter string="Location" name="Location" context="{'group_by':'location'}"/>
+              <filter string="Construction Type" name="construction_type" context="{'group_by':'construction_type'}"/>
+          </group>
+      </search>
+    </field>
+  </record>
+</odoo>
