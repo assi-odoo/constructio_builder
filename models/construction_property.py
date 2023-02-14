@@ -6,7 +6,7 @@ class ConstrProperty(models.Model):
 
     site_name = fields.Char(required=True)
     description = fields.Char()
-    customer_name = fields.Char(required=True)
+    customer_name = fields.Many2one("res.users")
     location = fields.Char(required=True)
     area = fields.Integer(required=True)
     construction_type = fields.Selection(
@@ -15,7 +15,7 @@ class ConstrProperty(models.Model):
     state = fields.Selection(
         selection = [('planning','Planning'),('preconstruction','Preconstruction'),
         ('construction','Construction'),('close-out','Close-Out')],copy=False)
-    assign_to=fields.Char()
+    assign_to=fields.Char(required=True)
     workers = fields.Integer(required=True)
     
     

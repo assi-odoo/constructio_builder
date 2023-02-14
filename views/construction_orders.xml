@@ -6,4 +6,18 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="construction_orders_view_tree" model="ir.ui.view">
+        <field name="name">construction_orders_view_tree</field>
+        <field name="model">construction.orders</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="vendor"/>
+                <field name="quantity"/>
+                <p>
+                <field name="material_id"/>
+                </p>
+                <field name="expected_delivery"/>
+            </tree>
+        </field>
+    </record>
 </odoo>

@@ -5,11 +5,13 @@
         <menuitem id="first_level_menu" name="Work">
             <menuitem id="construction_model_menu_action" action="construction_model_action" />
         </menuitem>
-
         <!--    Setting Menu with Orders -->
         <menuitem id="more_setting_menu" name="Settings">
             <menuitem id="construction_setting_menu" name="Orders" action="constr_setting_menu_action" />
+            <menuitem id="material_setting_menu" name="Materials" action="material_setting_tab_action" />
         </menuitem>
-
+        <!-- Material Tab -->
+        <!-- <menuitem id="Material_setting_menu" name="material_Settings">
+        </menuitem> -->
     </menuitem>
 </odoo>

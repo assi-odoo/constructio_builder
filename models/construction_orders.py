@@ -5,9 +5,7 @@ class ConstructionOrders(models.Model):
     _name= "construction.orders"
     _description="creating a section for listing all product which is going to used in this projects.."
 
-    vendor = fields.Char(required=True)
+    vendor = fields.Many2one('res.partner',required=True)
     quantity = fields.Integer(required=True)
-    material = fields.Char(required=True)
-    expected_delivery = fields.Date(copy=False,default= lambda self: fields.Datetime.now()+relativedelta(month=1))
-
-    
+    material_id = fields.Many2many("material.stock")
+    expected_delivery = fields.Date(copy=False,default= lambda self: fields.Datetime.now()+relativedelta(days=12))
