@@ -9,10 +9,10 @@
         <field name="name">material_stock_view_tree</field>
         <field name="model">material.stock</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree editable="bottom">
                 <field name="name"/>
                 <field name="price"/>
-                <field name="quantity"/>
+                <field name="quantity" />
             </tree>
         </field>
     </record>
@@ -25,7 +25,7 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="price"/>
+                        <field name="price"/> 
                         <field name="quantity"/>
                     </group>
                 </sheet>

@@ -3,7 +3,7 @@
     <record id="constr_setting_menu_action" model="ir.actions.act_window">
         <field name="name">Orders</field>
         <field name="res_model">construction.orders</field>
-        <field name="view_mode">tree,form</field>
+        <!-- <field name="view_mode">tree,form</field> -->
     </record>
 
     <record id="construction_orders_view_tree" model="ir.ui.view">
@@ -12,12 +12,41 @@
         <field name="arch" type="xml">
             <tree string="">
                 <field name="vendor"/>
-                <field name="quantity"/>
-                <p>
-                <field name="material_id"/>
-                </p>
                 <field name="expected_delivery"/>
+                <field name="total"/>
+
             </tree>
+        </field>
+    </record>
+
+
+    <record id="construction_orders_view_form" model="ir.ui.view">
+        <field name="name">construction_orders.view.form</field>
+        <field name="model">construction.orders</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <!-- Parent Group -->
+                    <group>
+                        <!-- Two Child Group -->
+                        <group>
+                            <field name="vendor"/>
+                        </group>
+                        <group>
+                            <field name="expected_delivery"/>
+                            <field name="total"/>
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Material">
+                            <tree>
+                                <field name="material_ids"/>
+                            </tree>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
         </field>
     </record>
 </odoo>

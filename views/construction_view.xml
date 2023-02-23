@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <odoo>
   <record id="construction_model_action" model="ir.actions.act_window">
-    <field name="name"> Propertys</field>
+    <field name="name">Construction Site</field>
     <field name="res_model">construction.property</field>
     <!-- <field name="view_mode">tree,form</field> -->
   </record>
@@ -27,11 +27,13 @@
     <field name="model">construction.property</field>
     <field name="arch" type="xml">
       <form>
+        <!-- Header calling to --> 
+        <header>
+          <button class="oe_highligh" name="finish_action_button" type="object" string="Finish"/>
+          <button class="oe_highlight" name="cancel_action_button" type="object" string="Cancel"/>
+          <field name="state" widget="statusbar" options="{'clickable':'1'}"/>
+        </header>
         <sheet>
-                  <!-- Header calling to --> 
-          <header>
-            <field name="state" widget="statusbar" options="{'clickable':'1'}"/>
-          </header>
           <h1>
           <field name="site_name"/>
           </h1>
@@ -71,7 +73,7 @@
     <field name="model">construction.property</field>
     <field name="arch" type="xml">
       <search string="">
-          <field name="site_name"/>
+          <field name="site_name" placeholder="Site Name"/>
           <field name="customer_name"/>
           <field name="location"/>
           <field name="construction_type"/>
