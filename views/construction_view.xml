@@ -11,9 +11,10 @@
   <field name="model">construction.property</field>
   <field name="arch" type="xml">
     <tree>
+      <field name="sequence" widget="handle"/>
       <field name="site_name" string="Site Name"/>
+      <field name="customer_name" string="Customer Name"/>
       <field name="assign_to"/>
-      <field name="customer_name" string="Organisation"/>
       <field name="location"/>
       <field name="workers" string="Number Of Workers"/>
       <field name="state"/>
@@ -34,8 +35,12 @@
           <field name="state" widget="statusbar" options="{'clickable':'1'}"/>
         </header>
         <sheet>
+          <!-- Add a Ribbon -->
+          <widget name='web_ribbon' title='Finish' bg_color="bg-success" attrs='{"invisible": [("state", "not in", ["close-out"])]}'/>
+          <widget name='web_ribbon' title='Canceled' bg_color='bg-danger' attrs='{"invisible": [("state", "not in", ["cancel"])]}'/>
+
           <h1>
-          <field name="site_name"/>
+          <field name="site_name" placeholder="Site Name"/>
           </h1>
           <!-- Groups -->
         <group>
@@ -74,7 +79,7 @@
     <field name="arch" type="xml">
       <search string="">
           <field name="site_name" placeholder="Site Name"/>
-          <field name="customer_name"/>
+          <!-- <field name="customer_name"/> -->
           <field name="location"/>
           <field name="construction_type"/>
           <field name="area"/>

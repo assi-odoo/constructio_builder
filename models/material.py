@@ -4,6 +4,7 @@ from odoo.exceptions import ValidationError
 class Material(models.Model):
     _name="material.stock"
     _description="all materials we have or not available in quantity"
+    _order="price desc"
 
     name = fields.Char()
     quantity= fields.Integer()

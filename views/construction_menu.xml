@@ -11,6 +11,7 @@
             <menuitem id="material_setting_menu" name="Materials" action="material_setting_tab_action" />
         </menuitem>
 
-        
+        <menuitem id="construction_department_menu" name="Department" action="construction_department_action" />
+
     </menuitem>
 </odoo>

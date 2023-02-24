@@ -11,6 +11,7 @@
         'views/construction_view.xml',
         'views/construction_orders.xml',
         'views/material.xml',
+        'views/construction_department.xml',
         'views/construction_menu.xml',
     ],
     'image':['static/description/module_icon.jpg'],
