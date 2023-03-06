@@ -22,6 +22,11 @@ class ConstrProperty(models.Model):
     workers = fields.Integer()
     sequence = fields.Integer("Sequence",default=1, help="Used to order stages. Lower is better.")
 
+
+    _sql_constraints=[(
+        'worker_size_positive','CHECK(workers>0)',
+        'Worker size must be more than 1, mention inside other informations')]
+
             # Finished Button Logic
     def finish_action_button(self):
         for record in self:

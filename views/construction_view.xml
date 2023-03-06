@@ -3,7 +3,7 @@
   <record id="construction_model_action" model="ir.actions.act_window">
     <field name="name">Construction Site</field>
     <field name="res_model">construction.property</field>
-    <!-- <field name="view_mode">tree,form</field> -->
+    <field name="view_mode">tree,form,kanban</field>
   </record>
 <!-- Tree View -->
   <record id="construction_tree_view" model="ir.ui.view">
@@ -57,7 +57,7 @@
         </group>
         <!-- Notebooks -->
         <notebook>
-          <page string="Description">
+          <page string="Description" placeholder="Description">
             <field name="description"/>
           </page>
 
@@ -91,4 +91,29 @@
       </search>
     </field>
   </record>
+
+  <record id="construction_view_kanban" model="ir.ui.view">
+    <field name="name">construction.view.kanban</field>
+    <field name="model">construction.property</field>
+    <field name="arch" type="xml">
+      <kanban>
+        <templates>
+          <group type="default">
+          <t t-name="kanban-box">
+            <div class="oe_kanban_global_click" >
+              <strong>Site Name : </strong>
+              <field  name="site_name" /> <br/>
+              <strong>Customer Name : </strong>
+              <field name="customer_name" /> <br/>
+              <strong>Assign To : </strong> 
+              <field name="assign_to" /><br/>
+            </div>
+          </t>
+        </group>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+
 </odoo>
